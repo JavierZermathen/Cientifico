@@ -15,18 +15,20 @@ module.exports = {
     extensions: ['.js'],
   },
 
-  module: {
+  module: { //reglas necesarias que se utilizaran
     rules: [
       {
-        test: /\.js?$/,
-        exclude: /node_modules/,
+        test: /\.js?$/,//permite identificar los archivos segun donde se encuentran
+        exclude: /node_modules/,//excluimos para produccion la carpeta de node
         use: {
           loader: 'babel-loader',
         }
       }
     ]
   },
-  plugins: [
+
+  plugins: [ //establecemos los plugin que vamos a utilizar
+
     new HtmlWebpackPlugin(
       {
         inject: true,
@@ -34,9 +36,12 @@ module.exports = {
         filename: './index.html',
       }
     ),
+
+    //Sirve para que pueda leer los archivos css
     new CopyWebpackPlugin([{
       from: './src/styles/styles.css',
       to: ''
     }])
   ]
 }
+
