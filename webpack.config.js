@@ -40,7 +40,7 @@ module.exports = {
     //Sirve para que pueda leer los archivos css
     new CopyWebpackPlugin([{
       from: './src/styles/styles.css',
-      to: ''
+      to: '' //si viene un archivo vacio lo ignora
     }])
   ]
 }
